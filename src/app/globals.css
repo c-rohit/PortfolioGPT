@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgb(132, 220, 76, 0.05);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.left{
+  width: 25%;
+  height: 100%;
+  float: left;
+  background: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.top{
+  width: 100%;
+  height: 50%;
+}
+
+.name{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+}
+
+.name h1{
+  font-size: 3rem;
+  font-family: "Brush Script MT", cursive;
+  color: #0b1b01;
+  filter: opacity(75%);
+}
+
+.image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70%;
+}
+
+.profile{
+  border-radius: 50%;
+}
+
+.bottom{
+  width: 100%;
+  height: 50%;
+}
+
+.description{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+}
+
+.description p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  filter: opacity(85%);
+}
+
+.social{
+  width: 100%;
+  height: 20%;
+}
+
+.one{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 33.33%;
+  height: 100%;
+  float: left;
+}
+
+.github{
+  filter: invert(100%) grayscale(100%) opacity(65%);
+}
+
+.github:hover{
+  cursor: pointer;
+  filter: sepia(1) saturate(10000%) hue-rotate(50deg) brightness(50%);
+}
+
+.two{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 33.33%;
+  height: 100%;
+  float: left;
+}
+
+.linkedin{
+  filter: grayscale(100%);
+}
+
+.linkedin:hover{
+  cursor: pointer;
+  filter: sepia(1) saturate(10000%) hue-rotate(90deg) brightness(150%);
+}
+
+.three{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 33.33%;
+  height: 100%;
+  float: left;
+}
+
+.gmail{
+  filter: grayscale(100%);
+}
+
+.gmail:hover{
+  cursor: pointer;
+  filter: sepia(1) saturate(10000%) hue-rotate(90deg) brightness(150%);
+}
+
+.right{
+  width: 75%;
+  height: 100%;
+  float: left;
+}
+
+@media screen and (orientation:portrait){
+  .left{
+    width: 100%;
+    height: 100%;
+  }
+
+  .right{
+    display: none;
+  }
+}
