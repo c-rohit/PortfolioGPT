@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
+@font-face{
+  font-family: 'Bella';
+  src: url('/fonts/bella.ttf') format('truetype');
+}
+
+@font-face{
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/jakarta.ttf') format('truetype');
+}
 
 body{
   margin: 0;
@@ -6,7 +14,6 @@ body{
   width: 100%;
   height: 100vh;
   background: rgb(132, 220, 76, 0.05);
-  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .left{
@@ -31,10 +38,9 @@ body{
 }
 
 .name h1{
-  font-size: 3rem;
-  font-family: "Brush Script MT", cursive;
-  color: #0b1b01;
-  filter: opacity(75%);
+  font-size: 250%;
+  font-family: Bella;
+  color: #84dc4c;
 }
 
 .image{
@@ -46,6 +52,8 @@ body{
 }
 
 .profile{
+  width: 75%;
+  height: auto;
   border-radius: 50%;
 }
 
@@ -69,7 +77,9 @@ body{
   width: 80%;
   height: 100%;
   text-align: center;
-  filter: opacity(85%);
+  filter: opacity(75%);
+  font-size: 100%;
+  font-family: Plus Jakarta Sans, sans-serif;
 }
 
 .social{
@@ -87,12 +97,14 @@ body{
 }
 
 .github{
+  width: 95%;
+  height: auto;
   filter: invert(100%) grayscale(100%) opacity(65%);
 }
 
 .github:hover{
   cursor: pointer;
-  filter: sepia(1) saturate(10000%) hue-rotate(50deg) brightness(50%);
+  filter: sepia(1) saturate(10000%) hue-rotate(50deg) brightness(90%);
 }
 
 .two{
@@ -105,12 +117,14 @@ body{
 }
 
 .linkedin{
+  width: 85%;
+  height: auto;
   filter: grayscale(100%);
 }
 
 .linkedin:hover{
   cursor: pointer;
-  filter: sepia(1) saturate(10000%) hue-rotate(90deg) brightness(150%);
+  filter: sepia(1) saturate(10000%) hue-rotate(90deg) brightness(250%);
 }
 
 .three{
@@ -123,12 +137,14 @@ body{
 }
 
 .gmail{
+  width: 85%;
+  height: auto;
   filter: grayscale(100%);
 }
 
 .gmail:hover{
   cursor: pointer;
-  filter: sepia(1) saturate(10000%) hue-rotate(90deg) brightness(150%);
+  filter: sepia(1) saturate(10000%) hue-rotate(90deg) brightness(250%);
 }
 
 .right{
@@ -145,5 +161,29 @@ body{
 
   .right{
     display: none;
+  }
+}
+
+@media (max-height: 650px){
+  .name h1{
+    font-size: 125%;
+  }
+
+  .description p{
+    font-size: 50%;
+  }
+
+  .github{
+    width: 50%;
+    margin-left: 50%;
+  }
+
+  .linkedin{
+    width: 45%;
+    margin-left: 25%;
+  }
+
+  .gmail{
+    width: 45%;
   }
 }
