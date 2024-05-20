@@ -19,18 +19,18 @@ export default function Home() {
             <p>An enthusiastic and goal-driven Computer Science Engineering student with proficient team player abilities with adequate knowledge in mainstream programming languages seeking for an opportunity to put his potential to full use in the field of Software Development.</p>
           </div>
           <div className="social">
-            <div className="link">
-              <Link className="one" href={'https://github.com/RO21T'}>
+            <div className="one">
+              <Link className="link1" href={'https://github.com/RO21T'}>
                 <Image className="github" priority={true} src={"/images/github.png"} width={45} height={45} alt="Github"/>
               </Link>
             </div>
-            <div className="link">
-              <Link className="two" href={'https://www.linkedin.com/in/rohit-c-6aa329255/'}>
+            <div className="two">
+              <Link className="link2" href={'https://www.linkedin.com/in/rohit-c-6aa329255/'}>
                 <Image className="linkedin" priority={true} src={"/images/linkedin.png"} width={50} height={45} alt="LinkedIn"/>
               </Link>
             </div>
-            <div className="link">
-              <Link className="three" href={'mailto:rohitc21official@email.com'}>
+            <div className="three">
+              <Link className="link3" href={'mailto:rohitc21official@email.com'}>
                 <Image className="gmail" priority={true} src={"/images/gmail.png"} width={50} height={50} alt="Gmail"/>
               </Link>
             </div>
