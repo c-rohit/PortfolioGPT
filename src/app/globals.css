@@ -99,13 +99,16 @@ body{
 }
 
 .link1{
-  width: 35%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 30%;
   height: 55%;
 }
 
 .github{
   width: 100%;
-  height: auto;
+  height: 100%;
   filter: invert(100%) grayscale(100%) opacity(65%);
 }
 
@@ -124,13 +127,16 @@ body{
 }
 
 .link2{
-  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 30%;
   height: 55%;
 }
 
 .linkedin{
   width: 100%;
-  height: auto;
+  height: 100%;
   filter: grayscale(100%);
 }
 
@@ -149,13 +155,16 @@ body{
 }
 
 .link3{
-  width: 40%;
-  height: 55%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 35%;
+  height: 50%;
 }
 
 .gmail{
   width: 100%;
-  height: auto;
+  height: 100%;
   filter: grayscale(100%);
 }
 
