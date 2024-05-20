@@ -21,6 +21,8 @@ body{
   height: 100%;
   float: left;
   background: white;
+  background-image: url('/images/topography.png');
+  background-size: cover;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
@@ -87,17 +89,22 @@ body{
   height: 20%;
 }
 
-.one{
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+.link{
   width: 33.33%;
   height: 100%;
   float: left;
 }
 
+.one{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
 .github{
-  width: 95%;
+  width: 35%;
   height: auto;
   filter: invert(100%) grayscale(100%) opacity(65%);
 }
@@ -111,13 +118,12 @@ body{
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 33.33%;
+  width: 100%;
   height: 100%;
-  float: left;
 }
 
 .linkedin{
-  width: 85%;
+  width: 35%;
   height: auto;
   filter: grayscale(100%);
 }
@@ -131,13 +137,12 @@ body{
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 33.33%;
+  width: 100%;
   height: 100%;
-  float: left;
 }
 
 .gmail{
-  width: 85%;
+  width: 40%;
   height: auto;
   filter: grayscale(100%);
 }
@@ -174,16 +179,14 @@ body{
   }
 
   .github{
-    width: 50%;
-    margin-left: 50%;
+    width: 35%;
   }
 
   .linkedin{
-    width: 45%;
-    margin-left: 25%;
+    width: 35%;
   }
 
   .gmail{
-    width: 45%;
+    width: 40%;
   }
 }
