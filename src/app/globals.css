@@ -206,51 +206,10 @@ body{
   height: 95%;
 }
 
-.output{
-  width: 100%;
-  height: 90%;
-  overflow-y: auto;
-}
-
-.question{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  height: 25%;
-}
-
-.question p{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 25%;
-  min-height: 50%;
-  background: #023020;
-  border-radius: 20px;
-  color: white;
-  font-size: 1.5rem;
-}
-
-.answer{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 75%;
-  overflow-y: auto;
-}
-
-.answer p{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 25%;
-  max-width: 50%;
-  min-height: 50%;
-  background: #90EE90;
-  border-radius: 20px;
-  font-size: 1.5rem;
+.logo{
+  width: 45%;
+  height: auto;
+  filter: opacity(15%);
 }
 
 .input{
@@ -339,6 +298,10 @@ body{
     font-size: 2rem;
   }
 
+  .logo{
+    width: 85%;
+  }
+
   .textbox{
     width: 80%;
   }
@@ -354,16 +317,6 @@ body{
 
   .ask{
     width: 80%;
-  }
-
-  .question p{
-    min-width: 40%;
-    font-size: 100%;
-  }
-
-  .answer p{
-    font-size: 100%;
-    max-width: 75%;
   }
 }
 
@@ -382,15 +335,5 @@ body{
 
   .query{
     font-size: 75%;
-  }
-
-  .question p{
-    min-width: 40%;
-    font-size: 100%;
-  }
-
-  .answer p{
-    font-size: 100%;
-    max-width: 75%;
   }
 }

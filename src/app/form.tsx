@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
 
@@ -169,35 +170,114 @@ export default function Form({ GEMINI_API_KEY }: any) {
         }
     }
 
-    if(input && output){
+    if(input!=null && output!=null){
         return(
             <form className="form" onSubmit={handleSubmit}>
-            <div className="output">
-                <div className="question">
-                    <p>{input}</p>
-                </div>
-                <div className="answer">
-                    <p>{output}</p>
-                </div>
-            </div>
-            <div className="input">
-                <div className="textbox">
-                    <div className="space"></div>
-                    <div className="type">
-                        <input type="text" className="query" name="query" placeholder="Let's have a chat about me!" autoComplete="off"/>
+                <div className="output" style={{width:"100%", height:"90%", overflowY:"auto"}}>
+                    <div className="question">
+                        <p>{input}</p>
+                    </div>
+                    <div className="answer">
+                        <p>{output}</p>
                     </div>
                 </div>
-                <div className="button">
-                    <input type="submit" className="ask" value={""}/>
+                <div className="input">
+                    <div className="textbox">
+                        <div className="space"></div>
+                        <div className="type">
+                            <input type="text" className="query" name="query" placeholder="Let's have a chat about me!" autoComplete="off"/>
+                        </div>
+                    </div>
+                    <div className="button">
+                        <input type="submit" className="ask" value={""}/>
+                    </div>
                 </div>
-            </div>
+                <style>
+                    {
+                        `
+                            @font-face{
+                                font-family: 'Plus Jakarta Sans';
+                                src: url('/fonts/jakarta.ttf') format('truetype');
+                            }
+
+                            .question{
+                                display: flex;
+                                justify-content: flex-end;
+                                align-items: flex-end;
+                                width: 95%;
+                                height: fit-content;
+                                min-height: 10%;
+                            }
+
+                            .question p{
+                                width: ${(input.length)+5}%;
+                                max-width: 60%;
+                                height: fit-content;
+                                background: #023020;
+                                color: white;
+                                font-size: 125%;
+                                text-align: center;
+                                font-family: Plus Jakarta Sans, sans-serif;
+                                border-radius: 10px;
+                                opacity: 80%;
+                            }
+
+                            .answer{
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: flex-end;
+                                width: 95%;
+                                height: fit-content;
+                                min-height: 10%;
+                            }
+
+                            .answer p{
+                                width: ${(output.length)+5}%;
+                                max-width: 60%;
+                                height: fit-content;
+                                background: #90EE90;
+                                font-size: 125%;
+                                text-align: center;
+                                font-family: Plus Jakarta Sans, sans-serif;
+                                border-radius: 10px;
+                                opacity: 80%
+                            }
+
+                            @media screen and (orientation:portrait){
+                                .question p{
+                                    width: ${(input.length)+25}%;
+                                    font-size: 105%;
+                                }
+
+                                .answer p{
+                                    width: ${(output.length)+25}%;
+                                    font-size: 105%;
+                                }
+                            }
+
+                            @media (max-height: 650px){
+                                .question p{
+                                    border-radius: 5px;
+                                    font-size: 75%;
+                                }
+
+                                .answer p{
+                                    border-radius: 5px;
+                                    font-size: 75%;
+                                }
+                            }
+                        `
+                    }
+                </style>
             </form>
         )
     }
     else{
         return(
             <form className="form" onSubmit={handleSubmit}>
-                <div className="output"></div>
+                <div className="output" style={{display:"flex", justifyContent:"center", alignItems:"center", width:"100%", height:"90%", overflow:"auto"}}>
+                    <Image className="logo" priority={true} src={"/images/logo.png"} width={300} height={300} alt="Rohit C"/>
+                </div>
                 <div className="input">
                     <div className="textbox">
                         <div className="space"></div>
