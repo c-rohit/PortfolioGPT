@@ -34,7 +34,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="three">
-              <Link className="link3" href={'mailto:rohitc21official@email.com'}>
+              <Link className="link3" href={'mailto:rohitc21official@gmail.com'}>
                 <Image className="gmail" priority={true} src={"/images/gmail.png"} width={50} height={50} alt="Gmail"/>
               </Link>
             </div>
