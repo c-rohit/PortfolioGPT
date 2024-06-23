@@ -20,7 +20,7 @@ export default function Home() {
         </div>
         <div className="bottom">
           <div className="description">
-            <p>An enthusiastic and goal-driven Computer Science and Engineering student with proficient team player abilities with adequate knowledge of mainstream programming languages seeking an opportunity to put his potential to full use in the field of Software Development.</p>
+            <p>An enthusiastic and goal-driven Computer Science and Engineering fresher with proficient team player abilities with adequate knowledge of mainstream programming languages seeking an opportunity to put his potential to full use in the field of Software Development.</p>
           </div>
           <div className="social">
             <div className="one">

@@ -79,7 +79,7 @@ export default function Form({ GEMINI_API_KEY }: any) {
                                 branch:"Computer Science and Engineering",
                                 started:2020,
                                 completed:2024,
-                                cgpa:8.43
+                                cgpa:8.49
                             },
                             school:{
                                 name:"Hari Sri Vidya Nidhi School, Thrissur",
