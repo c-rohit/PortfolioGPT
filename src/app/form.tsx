@@ -312,7 +312,7 @@ export default function Form({ GEMINI_API_KEY }: any) {
         return(
             <form className="form" onSubmit={handleSubmit}>
                 <div className="output" style={{display:"flex", justifyContent:"center", alignItems:"center", width:"100%", height:"90%", overflow:"auto"}}>
-                    <Image className="logo" priority={true} src={"/images/logo.png"} width={300} height={300} alt="Rohit C"/>
+                    <Image className="logo" priority={true} src={"/images/logo.png"} width={300} height={300} alt="PortfolioGPT"/>
                 </div>
                 <div className="input">
                     <div className="textbox">
