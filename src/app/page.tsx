@@ -24,12 +24,12 @@ export default function Home() {
           </div>
           <div className="social">
             <div className="one">
-              <Link className="link1" href={'https://github.com/RO21T'}>
+              <Link className="link1" href={'https://github.com/c-rohit'}>
                 <Image className="github" priority={true} src={"/images/github.png"} width={45} height={45} alt="Github"/>
               </Link>
             </div>
             <div className="two">
-              <Link className="link2" href={'https://www.linkedin.com/in/c-rohit'}>
+              <Link className="link2" href={'https://linkedin.com/in/c-rohit'}>
                 <Image className="linkedin" priority={true} src={"/images/linkedin.png"} width={50} height={45} alt="LinkedIn"/>
               </Link>
             </div>
