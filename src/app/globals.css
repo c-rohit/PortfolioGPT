@@ -97,7 +97,7 @@ body{
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: white;
+  background: rgb(132 220 76 / 0.15);
   text-align: center;
   transform: rotateY(180deg);
   backface-visibility: hidden;
@@ -115,7 +115,7 @@ body{
   width: 20%;
   height: 35%;
   border: 0;
-  background: white;
+  background: rgb(132 220 76 / 0);
   background-image: url('/images/resume.png');
   background-size: contain;
   background-position: center;
@@ -125,6 +125,7 @@ body{
 
 .resume:hover{
   cursor: pointer;
+  filter: opacity(70%);
 }
 
 .instruction{
