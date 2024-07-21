@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import Form from "./form";
+import Button from "./button";
 import dotenv from 'dotenv';
 
 dotenv.config()
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <title>Rohit C</title>
@@ -21,7 +22,12 @@ export default function Home() {
                   <Image className="profile" priority={true} src={"/images/profile.png"} width={300} height={300} alt="Rohit C"/>
                 </div>
                 <div className="back">
-                  <p>ABC</p>
+                  <div className="icon">
+                    <Button/>
+                  </div>
+                  <div className="instruction">
+                    <p>View Resume</p>
+                  </div>
                 </div>
               </div>
             </div>

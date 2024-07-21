@@ -64,8 +64,7 @@ body{
 }
 
 .canvas:hover>.card{
-  cursor: pointer;
-  transform: rotateY(180deg);
+  transform: rotateY(-180deg);
 }
 
 .card{
@@ -87,6 +86,12 @@ body{
   backface-visibility: hidden;
 }
 
+.profile{
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
 .back{
   position: absolute;
   width: 100%;
@@ -99,10 +104,38 @@ body{
   backface-visibility: hidden;
 }
 
-.profile{
+.icon{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   width: 100%;
-  height: auto;
-  border-radius: 50%;
+  height: 50%;
+}
+
+.resume{
+  width: 20%;
+  height: 35%;
+  border: 0;
+  background: white;
+  background-image: url('/images/resume.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: opacity(60%);
+}
+
+.resume:hover{
+  cursor: pointer;
+}
+
+.instruction{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 50%;
+  font-family: Plus Jakarta Sans, sans-serif;
+  filter: opacity(75%);
 }
 
 .bottom{
