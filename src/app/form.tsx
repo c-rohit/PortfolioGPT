@@ -88,13 +88,13 @@ export default function Form({ GEMINI_API_KEY }: any) {
                                     stream:"PCM + Computer Science",
                                     started:2019,
                                     completed:2020,
-                                    percentage:"89%"
+                                    percentage:"88.6%"
                                 },
                                 ssc:{
                                     board:"ICSE",
                                     started:2017,
                                     completed:2018,
-                                    percentage:"93%"
+                                    percentage:"92.2%"
                                 }
                             }
                         },
