@@ -9,7 +9,7 @@ dotenv.config()
 export default async function Home() {
   return (
     <>
-      <title>Rohit C</title>
+      <title>Rohit C丨Portfolio</title>
       <div className="left">
         <div className="top">
           <div className="name">
