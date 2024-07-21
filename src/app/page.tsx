@@ -26,7 +26,7 @@ export default async function Home() {
                     <Button/>
                   </div>
                   <div className="instruction">
-                    <p>View Resume</p>
+                    <p>Resume</p>
                   </div>
                 </div>
               </div>
