@@ -15,7 +15,16 @@ export default function Home() {
             <h1>ROHIT C</h1>
           </div>
           <div className="image">
-            <Image className="profile" priority={true} src={"/images/profile.png"} width={300} height={300} alt="Rohit C"/>
+            <div className="canvas">
+              <div className="card">
+                <div className="front">
+                  <Image className="profile" priority={true} src={"/images/profile.png"} width={300} height={300} alt="Rohit C"/>
+                </div>
+                <div className="back">
+                  <p>ABC</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="bottom">

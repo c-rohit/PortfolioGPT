@@ -53,8 +53,54 @@ body{
   height: 70%;
 }
 
+.canvas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+  border-radius: 50%;
+  perspective: 1000px;
+}
+
+.canvas:hover>.card{
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+
+.card{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+}
+
+.front{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  backface-visibility: hidden;
+}
+
+.back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background: white;
+  text-align: center;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+
 .profile{
-  width: 75%;
+  width: 100%;
   height: auto;
   border-radius: 50%;
 }
