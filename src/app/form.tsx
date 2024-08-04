@@ -115,7 +115,7 @@ export default function Form({ GEMINI_API_KEY }: any) {
                             soft:"Critical thinking, Creative thinking, Problem solving, Self-learning, Time management, Adaptability, Team player, Leadership"
                         },
                         interests:"Frontend development, Backend development, UI designing, AI/ML, LLM",
-                        certificates:"Oracle Cloud Infrastructure 2024 Generative AI Certified Professional, Infosys Artificial Primer Certification, Google IT Automation with Python Specialization, Google Cloud Study JAM, Cisco Cybersecurity Essentials, Manifold Advanced Python Programming for Competitive Coding, IIT Bombay PHP and MySQL Training",
+                        certificates:"Oracle Cloud Infrastructure 2024 Generative AI Certified Professional, Infosys Artificial Primer Certification, Google IT Automation with Python Specialization, Google Cloud Study JAM, Hewlett Packard Enterprise Software Engineering Job Simulation ,Cisco Cybersecurity Essentials, Manifold Advanced Python Programming for Competitive Coding, IIT Bombay PHP and MySQL Training",
                         projects:{
                             one:{
                                 name:"AI Powered Weighing and Pricing Software for Fruits and Vegetables",
