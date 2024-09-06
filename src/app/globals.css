@@ -260,14 +260,38 @@ body{
 }
 
 .up{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 10%;
 }
 
-.up h1{
+.upspace{
+  width: 2%;
+  height: 100%;
+  float: left;
+}
+
+.upleft{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 36%;
+  height: 100%;
+  float: left;
+}
+
+.count{
+  width: 40%;
+  height: auto;
+  filter: opacity(75%);
+}
+
+.upright{
+  width: 62%;
+  height: 100%;
+  float: left;
+}
+
+.upright h1{
   font-size: 250%;
   font-family: Bella;
   color: #84dc4c;
@@ -374,8 +398,25 @@ body{
     height: 100%;
   }
 
-  .up h1{
-    font-size: 2rem;
+  .upleft{
+    align-items: center;
+  }
+
+  .count{
+    width: 100%;
+  }
+
+  .upright {
+    display: flex;
+    width: 62%;
+    height: 100%;
+    float: left;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+  .upright h1{
+    font-size: 1.65rem;
   }
 
   .logo{
@@ -413,7 +454,7 @@ body{
     font-size: 50%;
   }
 
-  .up h1{
+  .upright h1{
     font-size: 140%;
   }
 

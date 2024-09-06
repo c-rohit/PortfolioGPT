@@ -58,7 +58,13 @@ export default async function Home() {
       </div>
       <div className="right">
         <div className="up">
-          <h1>Portfolio GPT</h1>
+          <div className="upspace"></div>
+          <div className="upleft">
+            <Image className="count" src={"https://visitcount.itsvg.in/api?id=Visitor&label=Visitor&color=12&icon=0&pretty=false"} width={250} height={50} alt="Visitor"/>
+          </div>
+          <div className="upright">
+            <h1>Portfolio GPT</h1>
+          </div>
         </div>
         <div className="down">
           <Form GEMINI_API_KEY={process.env.GEMINI_API_KEY}/>
