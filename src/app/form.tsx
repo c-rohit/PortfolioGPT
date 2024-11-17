@@ -325,7 +325,7 @@ export default function Form({ GEMINI_API_KEY }: any) {
                     <div className="textbox">
                         <div className="space"></div>
                         <div className="type">
-                            <input type="text" className="query" name="query" placeholder="Let's have a chat about me!" autoComplete="off"/>
+                            <input type="text" id="query" className="query" name="query" placeholder="Let's have a chat about me!" autoComplete="off"/>
                         </div>
                     </div>
                     <div className="button">
