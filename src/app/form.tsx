@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
 
 interface Dictionary {
@@ -39,6 +39,7 @@ const safetySettings = [
 export default function Form({ GEMINI_API_KEY }: any) {
     const [input, setInput] = useState<string | null>(null)
     const [output, setOutput] = useState<string | null>(null)
+    const outputRef = useRef<HTMLDivElement>(null)
 
     const apiKey = GEMINI_API_KEY;
     const genAI = new GoogleGenerativeAI(apiKey);
@@ -53,6 +54,12 @@ export default function Form({ GEMINI_API_KEY }: any) {
         history: [
         ],
     });
+
+    useEffect(() => {
+        if (outputRef.current) {
+            outputRef.current.scrollTop = outputRef.current.scrollHeight
+        }
+    }, [input, output])
 
     const handleSubmit=async (e:FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
@@ -203,7 +210,7 @@ export default function Form({ GEMINI_API_KEY }: any) {
 
         return(
             <form className="form" onSubmit={handleSubmit}>
-                <div className="output" style={{width:"100%", height:"90%", overflowY:"auto"}}>
+                <div ref={outputRef} className="output" style={{width:"100%", height:"90%", overflowY:"auto"}}>
                     {Object.entries(chat).map(([input, output]) => (
                         <>
                             <div className="question">
