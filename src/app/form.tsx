@@ -289,24 +289,23 @@ export default function Form({ GEMINI_API_KEY }: any) {
                                             justify-content: flex-end;
                                             align-items: flex-end;
                                             width: 95%;
-                                            height: fit-content;
-                                            min-height: 10%;
+                                            height: auto;
                                         }
 
                                         .question p {
-                                            width: fit-content;
-                                            min-width: 10%;
+                                            width: auto;
                                             max-width: 60%;
-                                            height: fit-content;
+                                            height: auto;
                                             background: #023020;
                                             color: white;
                                             font-size: 125%;
-                                            text-align: center;
                                             font-family: Plus Jakarta Sans, sans-serif;
                                             border-radius: 10px;
                                             opacity: 80%;
-                                            padding: 10px;
+                                            padding: 1%;
                                             box-sizing: border-box;
+                                            word-wrap: break-word;
+                                            overflow-wrap: break-word;
                                         }
 
                                         .answer {
@@ -314,34 +313,35 @@ export default function Form({ GEMINI_API_KEY }: any) {
                                             justify-content: flex-start;
                                             align-items: flex-end;
                                             width: 95%;
-                                            height: fit-content;
-                                            min-height: 10%;
+                                            height: auto;
                                         }
 
                                         .answer p {
-                                            width: fit-content;
-                                            min-width: 10%;
+                                            width: auto;
                                             max-width: 60%;
-                                            height: fit-content;
+                                            height: auto;
                                             background: #90EE90;
                                             font-size: 125%;
-                                            text-align: center;
                                             font-family: Plus Jakarta Sans, sans-serif;
                                             border-radius: 10px;
                                             opacity: 80%;
-                                            padding: 10px;
+                                            padding: 1%;
                                             box-sizing: border-box;
+                                            word-wrap: break-word;
+                                            overflow-wrap: break-word;
                                         }
 
                                         @media screen and (orientation: portrait) {
                                             .question p {
-                                                min-width: 30%;
                                                 font-size: 105%;
+                                                padding: 2.5%;
+                                                border-radius: 5px;
                                             }
 
                                             .answer p {
-                                                min-width: 30%;
                                                 font-size: 105%;
+                                                padding: 2.5%;
+                                                border-radius: 5px;
                                             }
                                         }
 
@@ -349,13 +349,13 @@ export default function Form({ GEMINI_API_KEY }: any) {
                                             .question p {
                                                 border-radius: 5px;
                                                 font-size: 75%;
-                                                padding: 8px;
+                                                padding: 1.5%;
                                             }
 
                                             .answer p {
                                                 border-radius: 5px;
                                                 font-size: 75%;
-                                                padding: 8px;
+                                                padding: 1.5%;
                                             }
                                         }
                                     `
