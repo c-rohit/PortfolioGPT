@@ -12,8 +12,6 @@ interface Dictionary {
     [key: string]: any;
 }
 
-let chat: Dictionary = {};
-
 const generationConfig = {
     temperature: 1,
     topP: 0.95,
@@ -44,6 +42,10 @@ const safetySettings = [
 export default function Form({ GEMINI_API_KEY }: any) {
     const [input, setInput] = useState<string | null>(null);
     const [output, setOutput] = useState<string | null>(null);
+    const [chat, setChat] = useState<Dictionary>(() => {
+        const savedChat = localStorage.getItem("chatHistory");
+        return savedChat ? JSON.parse(savedChat) : {};
+    });
     const outputRef = useRef<HTMLDivElement>(null);
 
     const apiKey = GEMINI_API_KEY;
@@ -58,6 +60,10 @@ export default function Form({ GEMINI_API_KEY }: any) {
         safetySettings,
         history: [],
     });
+
+    const saveChatToLocalStorage = (newChat: Dictionary) => {
+        localStorage.setItem("chatHistory", JSON.stringify(newChat));
+    };
 
     useEffect(() => {
         if (outputRef.current) {
@@ -197,6 +203,11 @@ export default function Form({ GEMINI_API_KEY }: any) {
                 );
                 setInput(query);
                 setOutput(result.response.text());
+                setChat((prevChat) => {
+                    const updatedChat = { ...prevChat, [query]: result.response.text() };
+                    saveChatToLocalStorage(updatedChat);
+                    return updatedChat;
+                });
                 const resetQuery = document.getElementById("query") as HTMLInputElement | null;
                 if (resetQuery) {
                     resetQuery.value = "";
@@ -210,11 +221,30 @@ export default function Form({ GEMINI_API_KEY }: any) {
         }
     };
 
-    if (input != null && output != null) {
-        chat[input] = output;
-
-        return (
-            <form className="form" onSubmit={handleSubmit}>
+    return (
+        <form className="form" onSubmit={handleSubmit}>
+            {Object.keys(chat).length === 0 ? (
+                <div
+                    className="output"
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: "100%",
+                        height: "90%",
+                        overflow: "auto",
+                    }}
+                >
+                    <Image
+                        className="logo"
+                        priority={true}
+                        src={"/images/logo.png"}
+                        width={300}
+                        height={300}
+                        alt="PortfolioGPT"
+                    />
+                </div>
+            ) : (
                 <div
                     ref={outputRef}
                     className="output"
@@ -312,68 +342,25 @@ export default function Form({ GEMINI_API_KEY }: any) {
                         </React.Fragment>
                     ))}
                 </div>
-                <div className="input">
-                    <div className="textbox">
-                        <div className="space"></div>
-                        <div className="type">
-                            <input
-                                type="text"
-                                id="query"
-                                className="query"
-                                name="query"
-                                placeholder="Let's have a chat about me!"
-                                autoComplete="off"
-                            />
-                        </div>
-                    </div>
-                    <div className="button">
-                        <input type="submit" className="ask" value={""} />
+            )}
+            <div className="input">
+                <div className="textbox">
+                    <div className="space"></div>
+                    <div className="type">
+                        <input
+                            type="text"
+                            id="query"
+                            className="query"
+                            name="query"
+                            placeholder="Let's have a chat about me!"
+                            autoComplete="off"
+                        />
                     </div>
                 </div>
-            </form>
-        );
-    } else {
-        return (
-            <form className="form" onSubmit={handleSubmit}>
-                <div
-                    className="output"
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        width: "100%",
-                        height: "90%",
-                        overflow: "auto",
-                    }}
-                >
-                    <Image
-                        className="logo"
-                        priority={true}
-                        src={"/images/logo.png"}
-                        width={300}
-                        height={300}
-                        alt="PortfolioGPT"
-                    />
+                <div className="button">
+                    <input type="submit" className="ask" value={""} />
                 </div>
-                <div className="input">
-                    <div className="textbox">
-                        <div className="space"></div>
-                        <div className="type">
-                            <input
-                                type="text"
-                                id="query"
-                                className="query"
-                                name="query"
-                                placeholder="Let's have a chat about me!"
-                                autoComplete="off"
-                            />
-                        </div>
-                    </div>
-                    <div className="button">
-                        <input type="submit" className="ask" value={""} />
-                    </div>
-                </div>
-            </form>
-        );
-    }
+            </div>
+        </form>
+    );
 }
