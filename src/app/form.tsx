@@ -42,7 +42,10 @@ const safetySettings = [
 export default function Form({ GEMINI_API_KEY }: any) {
     const [input, setInput] = useState<string | null>(null);
     const [output, setOutput] = useState<string | null>(null);
-    const [chat, setChat] = useState<Dictionary>({});
+    const [chat, setChat] = useState<Dictionary>(() => {
+        const savedChat = localStorage.getItem("chatHistory");
+        return savedChat ? JSON.parse(savedChat) : {};
+    });
     const outputRef = useRef<HTMLDivElement>(null);
 
     const apiKey = GEMINI_API_KEY;
@@ -58,27 +61,21 @@ export default function Form({ GEMINI_API_KEY }: any) {
         history: [],
     });
 
-    useEffect(() => {
-        // Check if localStorage is available in the browser
-        if (typeof window !== "undefined") {
-            const savedChat = localStorage.getItem("chatHistory");
-            if (savedChat) {
-                setChat(JSON.parse(savedChat));
-            }
-        }
-    }, []);
-
     const saveChatToLocalStorage = (newChat: Dictionary) => {
-        if (typeof window !== "undefined") {
-            localStorage.setItem("chatHistory", JSON.stringify(newChat));
-        }
+        localStorage.setItem("chatHistory", JSON.stringify(newChat));
     };
 
     useEffect(() => {
         if (outputRef.current) {
             outputRef.current.scrollTop = outputRef.current.scrollHeight;
         }
-    }, [input, output]);
+    }, [chat]);
+
+    useEffect(() => {
+        if (outputRef.current) {
+            outputRef.current.scrollTop = outputRef.current.scrollHeight;
+        }
+    }, []);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
