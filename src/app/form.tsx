@@ -73,6 +73,19 @@ export default function Form({ GEMINI_API_KEY }: any) {
         }
     }, []);
 
+    function calculateAge() {
+        const currentDate = new Date();
+        const birthDate = new Date(2002, 1, 21);
+        let age = currentDate.getFullYear() - birthDate.getFullYear();
+        const hasBirthdayPassed = currentDate.getMonth() > birthDate.getMonth() || (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() >= birthDate.getDate());
+    
+        if (!hasBirthdayPassed) {
+            age -= 1;
+        }
+    
+        return age;
+    }
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -87,7 +100,7 @@ export default function Form({ GEMINI_API_KEY }: any) {
                         Derieve the context of ${query} from the following facts:
 
                         name:"Rohit C",
-                        age:${(new Date().getFullYear())-2002},
+                        age:${calculateAge()},
                         email:"rohitc21official@gmail.com",
                         location:"Thrissur, Kerala, India",
                         qualification:"B.Tech Computer Science and Engineering",
@@ -126,7 +139,7 @@ export default function Form({ GEMINI_API_KEY }: any) {
                             two:{
                                 role:"Software Engineer",
                                 organization:"Tata Elxsi",
-                                duration:"2024-${new Date().getFullYear()}"
+                                duration:"2024-Present"
                             },
                         },
                         skills:{
