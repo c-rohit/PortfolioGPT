@@ -42,10 +42,7 @@ const safetySettings = [
 export default function Form({ GEMINI_API_KEY }: any) {
     const [input, setInput] = useState<string | null>(null);
     const [output, setOutput] = useState<string | null>(null);
-    const [chat, setChat] = useState<Dictionary>(() => {
-        const savedChat = localStorage.getItem("chatHistory");
-        return savedChat ? JSON.parse(savedChat) : {};
-    });
+    const [chat, setChat] = useState<Dictionary>({});
     const outputRef = useRef<HTMLDivElement>(null);
 
     const apiKey = GEMINI_API_KEY;
@@ -61,8 +58,20 @@ export default function Form({ GEMINI_API_KEY }: any) {
         history: [],
     });
 
+    useEffect(() => {
+        // Check if localStorage is available in the browser
+        if (typeof window !== "undefined") {
+            const savedChat = localStorage.getItem("chatHistory");
+            if (savedChat) {
+                setChat(JSON.parse(savedChat));
+            }
+        }
+    }, []);
+
     const saveChatToLocalStorage = (newChat: Dictionary) => {
-        localStorage.setItem("chatHistory", JSON.stringify(newChat));
+        if (typeof window !== "undefined") {
+            localStorage.setItem("chatHistory", JSON.stringify(newChat));
+        }
     };
 
     useEffect(() => {
@@ -263,81 +272,89 @@ export default function Form({ GEMINI_API_KEY }: any) {
                                 <p>{output}</p>
                             </div>
                             <style>
-                                {`
-                                    @font-face {
-                                        font-family: 'Plus Jakarta Sans';
-                                        src: url('/fonts/jakarta.ttf') format('truetype');
-                                    }
+                                {
+                                    `
+                                        @font-face {
+                                            font-family: 'Plus Jakarta Sans';
+                                            src: url('/fonts/jakarta.ttf') format('truetype');
+                                        }
 
-                                    .question {
-                                        display: flex;
-                                        justify-content: flex-end;
-                                        align-items: flex-end;
-                                        width: 95%;
-                                        height: fit-content;
-                                        min-height: 10%;
-                                    }
+                                        .question {
+                                            display: flex;
+                                            justify-content: flex-end;
+                                            align-items: flex-end;
+                                            width: 95%;
+                                            height: fit-content;
+                                            min-height: 10%;
+                                        }
 
-                                    .question p {
-                                        width: fit-content;
-                                        min-width: 10%;
-                                        max-width: 60%;
-                                        height: fit-content;
-                                        background: #023020;
-                                        color: white;
-                                        font-size: 125%;
-                                        text-align: center;
-                                        font-family: Plus Jakarta Sans, sans-serif;
-                                        border-radius: 10px;
-                                        opacity: 80%;
-                                    }
-
-                                    .answer {
-                                        display: flex;
-                                        justify-content: flex-start;
-                                        align-items: flex-end;
-                                        width: 95%;
-                                        height: fit-content;
-                                        min-height: 10%;
-                                    }
-
-                                    .answer p {
-                                        width: fit-content;
-                                        min-width: 10%;
-                                        max-width: 60%;
-                                        height: fit-content;
-                                        background: #90EE90;
-                                        font-size: 125%;
-                                        text-align: center;
-                                        font-family: Plus Jakarta Sans, sans-serif;
-                                        border-radius: 10px;
-                                        opacity: 80%;
-                                    }
-
-                                    @media screen and (orientation: portrait) {
                                         .question p {
-                                            min-width: 30%;
-                                            font-size: 105%;
+                                            width: fit-content;
+                                            min-width: 10%;
+                                            max-width: 60%;
+                                            height: fit-content;
+                                            background: #023020;
+                                            color: white;
+                                            font-size: 125%;
+                                            text-align: center;
+                                            font-family: Plus Jakarta Sans, sans-serif;
+                                            border-radius: 10px;
+                                            opacity: 80%;
+                                            padding: 10px;
+                                            box-sizing: border-box;
+                                        }
+
+                                        .answer {
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: flex-end;
+                                            width: 95%;
+                                            height: fit-content;
+                                            min-height: 10%;
                                         }
 
                                         .answer p {
-                                            min-width: 30%;
-                                            font-size: 105%;
+                                            width: fit-content;
+                                            min-width: 10%;
+                                            max-width: 60%;
+                                            height: fit-content;
+                                            background: #90EE90;
+                                            font-size: 125%;
+                                            text-align: center;
+                                            font-family: Plus Jakarta Sans, sans-serif;
+                                            border-radius: 10px;
+                                            opacity: 80%;
+                                            padding: 10px;
+                                            box-sizing: border-box;
                                         }
-                                    }
 
-                                    @media (max-height: 650px) {
-                                        .question p {
-                                            border-radius: 5px;
-                                            font-size: 75%;
+                                        @media screen and (orientation: portrait) {
+                                            .question p {
+                                                min-width: 30%;
+                                                font-size: 105%;
+                                            }
+
+                                            .answer p {
+                                                min-width: 30%;
+                                                font-size: 105%;
+                                            }
                                         }
 
-                                        .answer p {
-                                            border-radius: 5px;
-                                            font-size: 75%;
+                                        @media (max-height: 650px) {
+                                            .question p {
+                                                border-radius: 5px;
+                                                font-size: 75%;
+                                                padding: 8px;
+                                            }
+
+                                            .answer p {
+                                                border-radius: 5px;
+                                                font-size: 75%;
+                                                padding: 8px;
+                                            }
                                         }
-                                    }
-                                `}
+                                    `
+                                }
                             </style>
                         </React.Fragment>
                     ))}
