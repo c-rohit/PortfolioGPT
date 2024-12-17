@@ -40,13 +40,7 @@ const safetySettings = [
 ];
 
 export default function Form({ GEMINI_API_KEY }: any) {
-    const [input, setInput] = useState<string | null>(null);
-    const [output, setOutput] = useState<string | null>(null);
-    const [chat, setChat] = useState<Dictionary>(() => {
-        const savedChat = localStorage.getItem("chatHistory");
-        return savedChat ? JSON.parse(savedChat) : {};
-    });
-    const [isClient, setIsClient] = useState(false);
+    const [chat, setChat] = useState<Dictionary>({});
     const outputRef = useRef<HTMLDivElement>(null);
 
     const apiKey = GEMINI_API_KEY;
@@ -73,12 +67,9 @@ export default function Form({ GEMINI_API_KEY }: any) {
     }, [chat]);
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            setIsClient(true);
-            const savedChat = localStorage.getItem("chatHistory");
-            if (savedChat) {
-                setChat(JSON.parse(savedChat));
-            }
+        const savedChat = localStorage.getItem("chatHistory");
+        if (savedChat) {
+            setChat(JSON.parse(savedChat));
         }
     }, []);
 
@@ -212,8 +203,7 @@ export default function Form({ GEMINI_API_KEY }: any) {
                         If the question contains any sensitive content or is sexually explicit or uses curse words reply back with an appropriate thug life message based on the question.
                     `
                 );
-                setInput(query);
-                setOutput(result.response.text());
+
                 setChat((prevChat) => {
                     const updatedChat = { ...prevChat, [query]: result.response.text() };
                     saveChatToLocalStorage(updatedChat);
