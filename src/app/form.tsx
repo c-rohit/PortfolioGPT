@@ -46,6 +46,7 @@ export default function Form({ GEMINI_API_KEY }: any) {
         const savedChat = localStorage.getItem("chatHistory");
         return savedChat ? JSON.parse(savedChat) : {};
     });
+    const [isClient, setIsClient] = useState(false);
     const outputRef = useRef<HTMLDivElement>(null);
 
     const apiKey = GEMINI_API_KEY;
@@ -72,8 +73,12 @@ export default function Form({ GEMINI_API_KEY }: any) {
     }, [chat]);
 
     useEffect(() => {
-        if (outputRef.current) {
-            outputRef.current.scrollTop = outputRef.current.scrollHeight;
+        if (typeof window !== "undefined") {
+            setIsClient(true);
+            const savedChat = localStorage.getItem("chatHistory");
+            if (savedChat) {
+                setChat(JSON.parse(savedChat));
+            }
         }
     }, []);
 
